@@ -3,9 +3,10 @@ import { BoardsController } from './boards.controller';
 import { BoardsService } from './boards.service';
 import { BoardRepository } from './board.repository';
 import { TypeOrmModule } from '@nestjs/typeorm/dist';
+import { TypeOrmExModule } from 'src/configs/typeorm-ex.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([BoardRepository])],
+  imports: [TypeOrmExModule.forCustomRepository([BoardRepository])],
   controllers: [BoardsController],
   providers: [BoardsService],
 })
